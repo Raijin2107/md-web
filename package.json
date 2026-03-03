@@ -11,6 +11,7 @@
   "dependencies": {
     "@material/material-color-utilities": "^0.4.0",
     "@material/web": "^2.4.1",
+    "lucide-react": "^0.576.0",
     "next": "16.1.6",
     "next-themes": "^0.4.6",
     "react": "19.2.3",

@@ -1,80 +1,92 @@
+/**
+ * update-theme.ts
+ *
+ * Reads app/globals.css and surgically replaces only the MD color token
+ * blocks between marker comments. Every other line (fonts, Tailwind imports,
+ * body rules, @theme, etc.) is left exactly as-is.
+ *
+ * Marker pairs that must exist in globals.css:
+ *   Light tokens  →  inside :root {}
+ *     /* [md-tokens:light:start] *\/  …  /* [md-tokens:light:end] *\/
+ *
+ *   Dark tokens   →  inside .dark {}
+ *     /* [md-tokens:dark:start] *\/  …  /* [md-tokens:dark:end] *\/
+ *
+ * Run:  npx ts-node --project tsconfig.json scripts/update-theme.ts
+ */
+
 import { generateTheme, themeToCssVariables, COLOR_SEED } from "../lib/theme";
 import fs from "fs";
 import path from "path";
 
+// ── 1. Generate new token values ──────────────────────────────────────────────
+
 const theme = generateTheme(COLOR_SEED);
 const { lightVariables, darkVariables } = themeToCssVariables(theme);
 
-let css = `@import "tailwindcss";
+const toBlock = (vars: Record<string, string>, indent = "  ") =>
+  Object.entries(vars)
+    .map(([k, v]) => `${indent}${k}: ${v};`)
+    .join("\n");
 
-:root {
-  /* Material 3 System Color Tokens - Generated from ${COLOR_SEED} */
-`;
-
-Object.entries(lightVariables).forEach(([key, value]) => {
-  css += `  ${key}: ${value};\n`;
-});
-
-css += `
-  --background: var(--md-sys-color-background);
-  --foreground: var(--md-sys-color-on-background);
-}
-
-body {
-  /* Global Font Definitions moved to body to access Geist variable */
-  --my-brand-font: var(--font-geist-sans), system-ui;
-  --my-headline-font: var(--font-geist-sans), system-ui;
-  --my-title-font: var(--font-geist-sans), system-ui;
-  --my-plain-font: var(--font-geist-sans), system-ui;
-
-  --md-ref-typeface-brand: var(--my-brand-font);
-  --md-ref-typeface-plain: var(--my-plain-font);
-
-  --md-sys-typescale-headline-font: var(--my-headline-font);
-  --md-sys-typescale-title-font: var(--my-title-font);
-  --md-sys-typescale-display-font: var(--my-brand-font);
-  --md-sys-typescale-body-font: var(--my-plain-font);
-  --md-sys-typescale-label-font: var(--my-plain-font);
-
-  /* Specific typescales for Material components */
-  --md-sys-typescale-label-large-font: var(--my-plain-font);
-  --md-sys-typescale-label-medium-font: var(--my-plain-font);
-  --md-sys-typescale-label-small-font: var(--my-plain-font);
-  --md-sys-typescale-body-large-font: var(--my-plain-font);
-  --md-sys-typescale-body-medium-font: var(--my-plain-font);
-  --md-sys-typescale-body-small-font: var(--my-plain-font);
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-primary: var(--md-sys-color-primary);
-  --color-on-primary: var(--md-sys-color-on-primary);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-`;
-
-Object.entries(darkVariables).forEach(([key, value]) => {
-  css += `    ${key}: ${value};\n`;
-});
-
-css += `
-    --background: var(--md-sys-color-background);
-    --foreground: var(--md-sys-color-on-background);
-  }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-`;
+// ── 2. Read the existing file ─────────────────────────────────────────────────
 
 const globalsPath = path.join(__dirname, "../app/globals.css");
-fs.writeFileSync(globalsPath, css);
-console.log(`Successfully updated ${globalsPath}`);
+
+if (!fs.existsSync(globalsPath)) {
+  console.error(`❌  File not found: ${globalsPath}`);
+  process.exit(1);
+}
+
+let css = fs.readFileSync(globalsPath, "utf-8");
+
+// ── 3. Helper: replace content between marker comments ────────────────────────
+
+function replaceBetweenMarkers(
+  source: string,
+  startMarker: string,
+  endMarker: string,
+  newContent: string
+): string {
+  const start = source.indexOf(startMarker);
+  const end = source.indexOf(endMarker);
+
+  if (start === -1 || end === -1) {
+    throw new Error(
+      `Marker not found.\n  start: "${startMarker}"\n  end:   "${endMarker}"\n\nMake sure globals.css contains both marker comments.`
+    );
+  }
+
+  const before = source.slice(0, start + startMarker.length);
+  const after = source.slice(end);
+
+  return `${before}\n${newContent}\n${after}`;
+}
+
+// ── 4. Inject tokens ──────────────────────────────────────────────────────────
+
+css = replaceBetweenMarkers(
+  css,
+  "/* [md-tokens:light:start] */",
+  "/* [md-tokens:light:end] */",
+  toBlock(lightVariables, "  ")
+);
+
+css = replaceBetweenMarkers(
+  css,
+  "/* [md-tokens:dark:start] */",
+  "/* [md-tokens:dark:end] */",
+  toBlock(darkVariables, "  ")
+);
+
+// ── 5. Update the seed comment so it's easy to see what generated the file ───
+
+css = css.replace(
+  /\/\* Material 3 System Color Tokens - Generated from #[0-9a-fA-F]+ \*\//,
+  `/* Material 3 System Color Tokens - Generated from ${COLOR_SEED} */`
+);
+
+// ── 6. Write back ─────────────────────────────────────────────────────────────
+
+fs.writeFileSync(globalsPath, css, "utf-8");
+console.log(`✅  Injected MD color tokens from seed ${COLOR_SEED} → ${globalsPath}`);

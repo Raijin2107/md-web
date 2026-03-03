@@ -67,6 +67,7 @@ const Button = ({
             href={href}
             target={target}
             {...props}
+            suppressHydrationWarning
         >
             {children}
         </Tag>
