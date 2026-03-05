@@ -45,16 +45,35 @@ export const Tabs = ({
     }, [activeTabIndex]);
 
     return (
-        <md-tabs
-            ref={tabsRef}
-            className={className}
-            activeTabIndex={activeTabIndex}
-            autoActivate={autoActivate}
-            suppressHydrationWarning
-            {...props}
-        >
-            {children}
-        </md-tabs>
+        <>
+            <style jsx global>{`
+                md-primary-tab {
+                    --md-primary-tab-container-color: var(--md-sys-color-surface-container-highest);
+                    --md-primary-tab-hover-state-layer-color: var(--md-sys-color-secondary);
+                    --md-primary-tab-hover-state-layer-opacity: 0.1;
+                    --md-primary-tab-active-hover-state-layer-color: var(--md-sys-color-primary);
+                    --md-primary-tab-active-hover-state-layer-opacity: 0.12;
+                }
+
+                md-secondary-tab {
+                    --md-secondary-tab-container-color: var(--md-sys-color-surface-container-high);
+                    --md-secondary-tab-hover-state-layer-color: var(--md-sys-color-secondary);
+                    --md-secondary-tab-hover-state-layer-opacity: 0.05;
+                    --md-secondary-tab-active-hover-state-layer-color: var(--md-sys-color-primary);
+                    --md-secondary-tab-active-hover-state-layer-opacity: 0.08;
+                }
+            `}</style>
+            <md-tabs
+                ref={tabsRef}
+                className={className}
+                activeTabIndex={activeTabIndex}
+                autoActivate={autoActivate}
+                suppressHydrationWarning
+                {...props}
+            >
+                {children}
+            </md-tabs>
+        </>
     );
 };
 

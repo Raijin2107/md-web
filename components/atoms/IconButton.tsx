@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import '@material/web/iconbutton/icon-button.js';
 
 interface IconButtonProps {
@@ -32,9 +32,23 @@ const IconButton = ({
     form,
     slot,
 }: IconButtonProps) => {
+    const innerRef = useRef<HTMLElement>(null);
+
+    // Fix for React 19: 'form' is a read-only property in custom elements (getter only)
+    useEffect(() => {
+        if (innerRef.current) {
+            if (form) {
+                innerRef.current.setAttribute('form', form);
+            } else {
+                innerRef.current.removeAttribute('form');
+            }
+        }
+    }, [form]);
+
     const Tag = 'md-icon-button' as any;
     return (
         <Tag
+            ref={innerRef}
             class={className || undefined}
             style={style}
             disabled={disabled || undefined}
@@ -44,7 +58,6 @@ const IconButton = ({
             value={value}
             type={type}
             onClick={onClick}
-            form={form}
             slot={slot}
             suppressHydrationWarning
         >

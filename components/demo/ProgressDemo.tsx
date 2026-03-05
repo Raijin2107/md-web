@@ -21,7 +21,7 @@ const ProgressDemo = () => {
     }, []);
 
     return (
-        <div className="flex flex-col gap-8 p-8 border border-primary/10 rounded-2xl  bg-primary/3 shadow-sm">
+        <div className="flex flex-col gap-8 p-8 border border-outline-variant rounded-2xl  bg-surface-container shadow-sm">
             <h2 className="text-xl font-semibold   border-b pb-4">Progress</h2>
             <div className="p-8 space-y-12">
                 <section>

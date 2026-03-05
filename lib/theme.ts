@@ -44,4 +44,4 @@ export const themeToCssVariables = (theme: Theme) => {
     return { lightVariables, darkVariables };
 };
 
-export const COLOR_SEED = "#48A111";
+export const COLOR_SEED = "#00CED1";

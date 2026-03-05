@@ -19,6 +19,7 @@ A Next.js component library that bridges **Google's Material Web** (`@material/w
   - [Checkbox](#checkbox)
   - [Chip & ChipSet](#chip--chipset)
   - [CircularProgress & LinearProgress](#circularprogress--linearprogress)
+  - [Dialog](#dialog)
   - [FAB (Floating Action Button)](#fab-floating-action-button)
   - [Icon](#icon)
   - [IconButton](#iconbutton)
@@ -312,6 +313,50 @@ import LinearProgress from '@/components/atoms/LinearProgress';
 
 // Four-color variant
 <CircularProgress indeterminate fourColor />
+```
+
+---
+
+### Dialog
+
+```tsx
+import Dialog, { DialogElement } from '@/components/atoms/Dialog';
+import Button from '@/components/atoms/Button';
+import { useRef } from 'react';
+
+function MyDialog() {
+  const dialogRef = useRef<DialogElement>(null);
+
+  return (
+    <>
+      <Button onClick={() => dialogRef.current?.show()}>Open Dialog</Button>
+      
+      <Dialog ref={dialogRef}>
+        <div slot="headline">Dialog Headline</div>
+        <form id="form-id" slot="content" method="dialog">
+          This is the main content area of the dialog.
+        </form>
+        <div slot="actions">
+          <Button variant="text" form="form-id" value="cancel">Cancel</Button>
+          <Button variant="text" form="form-id" value="ok" autoFocus>OK</Button>
+        </div>
+      </Dialog>
+    </>
+  );
+}
+```
+
+**Props**
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `open` | `boolean` | — | Whether the dialog is open |
+| `quick` | `boolean` | — | Shows without animation |
+| `type` | `'alert'` | — | Specialized type ('alert') |
+| `position` | `'center' \| 'top' \| 'bottom' \| 'left' \| 'right' \| 'top-left' \| 'top-right' \| 'bottom-left' \| 'bottom-right'` | `'center'` | Anchor position |
+| `noFocusTrap` | `boolean` | — | Disables the focus trap |
+| `onClose` | `(event: Event) => void` | — | Close event handler |
+| `onOpen` | `(event: Event) => void` | — | Open event handler |
 ```
 
 ---
@@ -621,7 +666,7 @@ export const COLOR_SEED = "#6750A4"; // Change to your brand color
 2. Regenerate `globals.css`:
 
 ```bash
-npx ts-node --project tsconfig.json scripts/update-theme.ts
+npx tsx scripts/update-theme.ts
 ```
 
 The entire application theme — all Material Web component colors — will update automatically.
@@ -765,8 +810,8 @@ You do not need to modify this file when using the React wrapper components — 
 | Build | `npm run build` | Production build with type checking |
 | Start | `npm run start` | Serves the production build |
 | Lint | `npm run lint` | Runs ESLint across the project |
-| Update theme | `npx ts-node scripts/update-theme.ts` | Regenerates `app/globals.css` from `COLOR_SEED` |
-| Inspect scheme | `npx ts-node scripts/inspect-scheme.ts` | Prints available Material color scheme keys to stdout |
+| Update theme | `npx tsx scripts/update-theme.ts` | Regenerates `app/globals.css` from `COLOR_SEED` |
+| Inspect scheme | `npx tsx scripts/inspect-scheme.ts` | Prints available Material color scheme keys to stdout |
 
 ---
 
@@ -779,7 +824,7 @@ Navigate to `/demo` for a live interactive showcase of all components, organized
 | **Buttons & Inputs** | Button, Checkbox, TextField, Select |
 | **Selection Controls** | Radio, Switch, Slider, Icon |
 | **Navigation & Selection** | Tabs, Chip, FAB, List |
-| **Feedback & Others** | CircularProgress, LinearProgress, Ripple |
+| **Feedback & Others** | CircularProgress, LinearProgress, Ripple, Dialog |
 
 ---
 

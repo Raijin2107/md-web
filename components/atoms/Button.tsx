@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 
 // Import Material Web button components to register them as custom elements
 // This needs to happen on the client side
@@ -26,8 +26,12 @@ const Button = ({
     onClick,
     href,
     target,
+    autoFocus,
+    form: formProp,
     ...props
 }: ButtonProps) => {
+    const innerRef = useRef<HTMLElement>(null);
+
     // Map variant to the corresponding custom element tag
     const Tag = (() => {
         switch (variant) {
@@ -45,27 +49,32 @@ const Button = ({
         }
     })() as React.ElementType;
 
-    // Added base classes like transition and cursor
-    const baseClasses = 'p-4 transition-all duration-200 cursor-pointer';
+    // Fix for React 19: 'form' is a read-only property in custom elements (getter only)
+    // React 19 tries to set it as a property, which fails.
+    // We must set it as an attribute manually.
+    useEffect(() => {
+        if (innerRef.current) {
+            if (formProp) {
+                innerRef.current.setAttribute('form', formProp);
+            } else {
+                innerRef.current.removeAttribute('form');
+            }
+        }
+    }, [formProp]);
 
-    // Default Material Design variables for better spacing
-    // We can override these in the style prop if needed
-    // const defaultStyle = {
-    //     '--md-filled-button-container-height': '48px',
-    //     '--md-filled-tonal-button-container-height': '48px',
-    //     '--md-outlined-button-container-height': '48px',
-    //     '--md-elevated-button-container-height': '48px',
-    //     '--md-text-button-container-height': '48px',
-    // };
+    // Added base classes like transition and cursor
+    const baseClasses = 'p-2.5 transition-all duration-200 cursor-pointer';
 
     return (
         <Tag
+            ref={innerRef}
             className={`${baseClasses} ${className}`.trim()}
             style={{ ...props.style } as React.CSSProperties}
-            disabled={disabled}
+            disabled={disabled || undefined}
             onClick={onClick}
             href={href}
             target={target}
+            autofocus={autoFocus || undefined}
             {...props}
             suppressHydrationWarning
         >

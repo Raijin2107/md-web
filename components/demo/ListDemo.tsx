@@ -1,14 +1,13 @@
 'use client';
 
-import React from 'react';
 import { List, ListItem } from '@/components/atoms/List';
 import Icon from '@/components/atoms/Icon';
 
 const ListDemo = () => {
     return (
-        <div className="flex flex-col gap-8 p-8 border border-primary/10 rounded-2xl bg-primary/3 shadow-sm">
+        <div className="flex flex-col gap-8 p-8 border border-outline-variant rounded-2xl bg-surface-container shadow-sm">
             <h2 className="text-xl font-semibold  border-b pb-4">List</h2>
-            <div className="bg-primary/3 rounded-lg overflow-hidden border">
+            <div className="bg-surface-container rounded-lg overflow-hidden border">
                 <List className='bg-background/90'>
                     <ListItem headline="Photos" supportingText="Jan 9, 2024" overline="Media">
                         <Icon slot="start">Image</Icon>
@@ -16,7 +15,7 @@ const ListDemo = () => {
                     <ListItem headline="Recipes" supportingText="Jan 17, 2024" overline="Food">
                         <Icon slot="start">Utensils</Icon>
                     </ListItem>
-                    <hr className=" dark:border-zinc-700" />
+                    <hr className="border-outline-variant" />
                     <ListItem
                         headline="Settings"
                         overline="System"

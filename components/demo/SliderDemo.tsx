@@ -9,14 +9,14 @@ const SliderDemo = () => {
     const [rangeEnd, setRangeEnd] = useState(70);
 
     return (
-        <div className="flex flex-col gap-8 p-8 border border-primary/10 rounded-2xl  bg-primary/3 shadow-sm">
+        <div className="flex flex-col gap-8 p-8 border border-outline-variant rounded-2xl  bg-surface-container shadow-sm">
             <h2 className="text-xl font-semibold   border-b pb-4">Slider & Switch</h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
                 {/* Sliders */}
                 <div className="space-y-8">
                     <div className="space-y-4">
-                        <span className="text-xs uppercase text-zinc-400 font-bold tracking-widest block mb-1">Continuous Slider</span>
+                        <span className="text-xs uppercase text-outline font-bold tracking-widest block mb-1">Continuous Slider</span>
                         <Slider
                             value={sliderValue}
                             onInput={(e: any) => setSliderValue(e.target.value)}
@@ -26,7 +26,7 @@ const SliderDemo = () => {
                     </div>
 
                     <div className="space-y-4">
-                        <span className="text-xs uppercase text-zinc-400 font-bold tracking-widest block mb-1">Labeled with Ticks</span>
+                        <span className="text-xs uppercase text-outline font-bold tracking-widest block mb-1">Labeled with Ticks</span>
                         <Slider
                             labeled
                             ticks
@@ -39,7 +39,7 @@ const SliderDemo = () => {
                     </div>
 
                     <div className="space-y-4">
-                        <span className="text-xs uppercase text-zinc-400 font-bold tracking-widest block mb-1">Range Slider</span>
+                        <span className="text-xs uppercase text-outline font-bold tracking-widest block mb-1">Range Slider</span>
                         <Slider
                             range
                             labeled

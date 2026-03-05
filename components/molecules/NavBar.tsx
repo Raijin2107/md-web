@@ -50,7 +50,7 @@ export default function NavBar({ activeHref, onNavClick }: NavBarProps) {
       <header
         id="navbar"
         className={[
-          'fixed inset-x-0 top-0 z-50 transition-shadow duration-300 bg-foreground/15 backdrop-blur-2xl',
+          'fixed inset-x-0 top-0 z-50 transition-shadow duration-300 bg-surface/70 backdrop-blur-2xl border-b border-outline-variant',
         ].join(' ')}
       >
         <div className="mx-auto flex h-16 max-w-6xl items-center gap-4 px-4 sm:px-6">
@@ -108,7 +108,7 @@ export default function NavBar({ activeHref, onNavClick }: NavBarProps) {
 
           {/* Hamburger — mobile */}
           <button
-            className="flex md:hidden h-9 w-9 items-center justify-center rounded-full text-zinc-600 hover:bg-zinc-100 transition-colors  dark:hover:bg-zinc-800"
+            className="flex md:hidden h-9 w-9 items-center justify-center rounded-full text-on-surface-variant hover:bg-primary/8 transition-colors"
             aria-label={menuOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={menuOpen}
             aria-controls="mobile-menu"
@@ -130,7 +130,7 @@ export default function NavBar({ activeHref, onNavClick }: NavBarProps) {
         {menuOpen && (
           <div
             id="mobile-menu"
-            className="border-t border-primary/10 bg-primary/3 px-4 pb-4 pt-2  bg-primary/3 md:hidden"
+            className="border-t border-outline-variant bg-surface-container px-4 pb-4 pt-2 md:hidden"
           >
             <nav className="flex flex-col gap-1" aria-label="Mobile navigation">
               {NAV_ITEMS.map((item) => {
@@ -152,8 +152,8 @@ export default function NavBar({ activeHref, onNavClick }: NavBarProps) {
                     className={[
                       'flex items-center justify-between rounded-xl px-4 py-3 text-sm font-medium transition-colors',
                       isActive
-                        ? 'bg-zinc-100 text-primary dark:bg-zinc-800 dark:text-zinc-50'
-                        : 'text-muted hover:bg-zinc-100 hover:text-primary  dark:hover:bg-zinc-800 dark:hover:text-zinc-50',
+                        ? 'bg-primary/10 text-primary dark:bg-primary/20 dark:text-primary-container'
+                        : 'text-muted hover:bg-primary/8 hover:text-primary  dark:hover:bg-primary/8 dark:hover:text-primary-container',
                     ].join(' ')}
                   >
                     {item.label}

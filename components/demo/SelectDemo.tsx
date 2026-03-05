@@ -9,14 +9,14 @@ const SelectDemo = () => {
     const [selectedVegetable, setSelectedVegetable] = useState('');
 
     return (
-        <div className="flex flex-col gap-8 p-8 border border-primary/10 rounded-2xl  bg-primary/3 shadow-sm">
+        <div className="flex flex-col gap-8 p-8 border border-outline-variant rounded-2xl  bg-surface-container shadow-sm">
             <h2 className="text-xl font-semibold   border-b pb-4">Select</h2>
 
             <div className="space-y-10">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
                     {/* Filled Select */}
                     <div className="space-y-4">
-                        <span className="text-xs uppercase text-zinc-400 font-bold tracking-widest block mb-1">Filled Select</span>
+                        <span className="text-xs uppercase text-outline font-bold tracking-widest block mb-1">Filled Select</span>
                         <Select
                             label="Favorite Fruit"
                             value={selectedFruit}
@@ -41,7 +41,7 @@ const SelectDemo = () => {
 
                     {/* Outlined Select */}
                     <div className="space-y-4">
-                        <span className="text-xs uppercase text-zinc-400 font-bold tracking-widest block mb-1">Outlined Select</span>
+                        <span className="text-xs uppercase text-outline font-bold tracking-widest block mb-1">Outlined Select</span>
                         <Select
                             variant="outlined"
                             label="Pick a Vegetable"
@@ -70,7 +70,7 @@ const SelectDemo = () => {
                 {/* Advanced Select */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
                     <div className="space-y-4">
-                        <span className="text-xs uppercase text-zinc-400 font-bold tracking-widest block mb-1">Rich Options & Icons</span>
+                        <span className="text-xs uppercase text-outline font-bold tracking-widest block mb-1">Rich Options & Icons</span>
                         <Select
                             label="Select with Icons"
                             className="w-full"

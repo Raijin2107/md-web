@@ -60,7 +60,7 @@ export default function TabDemo() {
     };
 
     return (
-        <div className="flex flex-col gap-8 p-8 border border-primary/10 rounded-2xl  bg-primary/3 shadow-sm">
+        <div className="flex flex-col gap-8 p-8 border border-outline-variant rounded-2xl  bg-surface-container shadow-sm">
             <h2 className="text-xl font-semibold   border-b pb-4">Tab</h2>
             <div className="flex flex-col gap-6">
 
@@ -80,7 +80,7 @@ export default function TabDemo() {
                             Drums
                         </Tab>
                     </Tabs>
-                    <div className="p-4   rounded-lg text-zinc-600 ">
+                    <div className="p-4   rounded-lg text-on-surface-variant ">
                         {activeTab1 === 0 && <p>Keyboard Content: 88 weighted keys, MIDI supported.</p>}
                         {activeTab1 === 1 && <p>Guitar Content: 6 strings, electric and acoustic models.</p>}
                         {activeTab1 === 2 && <p>Drums Content: Standard 5-piece kit with crash and ride cymbals.</p>}
@@ -95,7 +95,7 @@ export default function TabDemo() {
                         <Tab variant="secondary" active={activeTab2 === 2}>Activities</Tab>
                         <Tab variant="secondary" active={activeTab2 === 3}>Food</Tab>
                     </Tabs>
-                    <div className="p-4   rounded-lg text-zinc-600 ">
+                    <div className="p-4   rounded-lg text-on-surface-variant ">
                         {activeTab2 === 0 && <p>Explore the world with our curated travel guides.</p>}
                         {activeTab2 === 1 && <p>Find the best accommodation for your stay.</p>}
                         {activeTab2 === 2 && <p>Discover local activities and hidden gems.</p>}
@@ -123,7 +123,7 @@ export default function TabDemo() {
 
                 {/* Scrolling Tabs */}
                 <Section title="Scrolling Tabs">
-                    <div className="  rounded-xl overflow-hidden  dark:bg-zinc-950">
+                    <div className="rounded-xl overflow-hidden bg-surface-containerest">
                         <Tabs activeTabIndex={activeTab2} onTabChange={setActiveTab2}>
                             <Tab variant="primary" className='min-w-40' active={activeTab2 === 0}>Tab 1</Tab>
                             <Tab variant="primary" className='min-w-40' active={activeTab2 === 1}>Tab 2</Tab>

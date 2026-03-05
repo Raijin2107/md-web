@@ -7,7 +7,7 @@ export default function CheckboxDemo() {
     const [checked, setChecked] = useState(false);
 
     return (
-        <div className="flex flex-col gap-8 p-8 border border-primary/10 rounded-2xl  bg-primary/3 shadow-sm">
+        <div className="flex flex-col gap-8 p-8 border border-outline-variant rounded-2xl  bg-surface-container shadow-sm">
             <h2 className="text-xl font-semibold   border-b pb-4">Checkbox</h2>
             <div className="flex flex-wrap gap-6 items-center">
                 <div className="flex flex-col gap-2">

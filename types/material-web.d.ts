@@ -303,6 +303,17 @@ declare module 'react' {
                 class?: string;
                 slot?: string;
             };
+
+            // Dialog
+            'md-dialog': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & {
+                'open'?: boolean;
+                'quick'?: boolean;
+                'no-focus-trap'?: boolean;
+                'type'?: 'alert';
+                'class'?: string;
+                'slot'?: string;
+                'aria-label'?: string;
+            };
         }
     }
 }

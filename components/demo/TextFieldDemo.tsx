@@ -20,14 +20,14 @@ const TextFieldDemo = () => {
     };
 
     return (
-        <div className="flex flex-col gap-8 p-8 border border-primary/10 rounded-2xl  bg-primary/3 shadow-sm">
+        <div className="flex flex-col gap-8 p-8 border border-outline-variant rounded-2xl  bg-surface-container shadow-sm">
             <h2 className="text-xl font-semibold   border-b pb-4">Text Field Variants</h2>
 
             <div className="space-y-10">
                 {/* Basic Variants */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
                     <div className="space-y-4">
-                        <span className="text-xs uppercase text-zinc-400 font-bold tracking-widest block mb-1">Filled</span>
+                        <span className="text-xs uppercase text-outline font-bold tracking-widest block mb-1">Filled</span>
                         <TextField
                             variant="filled"
                             label="First Name"
@@ -36,7 +36,7 @@ const TextFieldDemo = () => {
                         />
                     </div>
                     <div className="space-y-4">
-                        <span className="text-xs uppercase text-zinc-400 font-bold tracking-widest block mb-1">Outlined</span>
+                        <span className="text-xs uppercase text-outline font-bold tracking-widest block mb-1">Outlined</span>
                         <TextField
                             variant="outlined"
                             label="Last Name"
@@ -49,7 +49,7 @@ const TextFieldDemo = () => {
                 {/* Text Areas */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
                     <div className="space-y-4">
-                        <span className="text-xs uppercase text-zinc-400 font-bold tracking-widest block mb-1">Filled Textarea</span>
+                        <span className="text-xs uppercase text-outline font-bold tracking-widest block mb-1">Filled Textarea</span>
                         <TextField
                             variant="filled"
                             type="textarea"
@@ -60,7 +60,7 @@ const TextFieldDemo = () => {
                         />
                     </div>
                     <div className="space-y-4">
-                        <span className="text-xs uppercase text-zinc-400 font-bold tracking-widest block mb-1">Outlined Textarea</span>
+                        <span className="text-xs uppercase text-outline font-bold tracking-widest block mb-1">Outlined Textarea</span>
                         <TextField
                             variant="outlined"
                             type="textarea"
@@ -75,7 +75,7 @@ const TextFieldDemo = () => {
                 {/* Icons & Slots */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
                     <div className="space-y-4">
-                        <span className="text-xs uppercase text-zinc-400 font-bold tracking-widest block mb-1">Icons (Search)</span>
+                        <span className="text-xs uppercase text-outline font-bold tracking-widest block mb-1">Icons (Search)</span>
                         <TextField
                             ref={searchRef}
                             variant="filled"
@@ -99,7 +99,7 @@ const TextFieldDemo = () => {
                         </TextField>
                     </div>
                     <div className="space-y-4">
-                        <span className="text-xs uppercase text-zinc-400 font-bold tracking-widest block mb-1">Prefix/Suffix</span>
+                        <span className="text-xs uppercase text-outline font-bold tracking-widest block mb-1">Prefix/Suffix</span>
                         <TextField
                             variant="outlined"
                             label="Price"
@@ -113,7 +113,7 @@ const TextFieldDemo = () => {
 
                 {/* Validation */}
                 <div className="space-y-6">
-                    <span className="text-xs uppercase text-zinc-400 font-bold tracking-widest block mb-1">Live Validation</span>
+                    <span className="text-xs uppercase text-outline font-bold tracking-widest block mb-1">Live Validation</span>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                         <div className="space-y-2">
                             <TextField

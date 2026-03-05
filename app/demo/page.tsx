@@ -17,6 +17,7 @@ import SliderDemo from "@/components/demo/SliderDemo";
 import SwitchDemo from "@/components/demo/SwitchDemo";
 import TextFieldDemo from "@/components/demo/TextFieldDemo";
 import TabDemo from "@/components/demo/TabDemo";
+import DialogDemo from "@/components/demo/DialogDemo";
 
 export default function DemoPage() {
     const [activeTab, setActiveTab] = useState(0);
@@ -55,6 +56,7 @@ export default function DemoPage() {
                     <div className="flex flex-col gap-8 w-full">
                         <ProgressDemo />
                         <RippleDemo />
+                        <DialogDemo />
                     </div>
                 );
             default:
@@ -70,25 +72,29 @@ export default function DemoPage() {
                 </h1>
             </header>
 
-            <section className="flex w-full max-w-6xl flex-col gap-6 bg-primary/3 p-6 shadow-sm rounded-2xl">
-                <div className="flex flex-col gap-2">
-                    <h2 className="text-2xl font-bold">Material Web Components</h2>
-                    <p className="text-muted">Tabs are positioned at the bottom using primary styling.</p>
-                </div>
-
-                <Tabs activeTabIndex={activeTab} onTabChange={setActiveTab}>
+            <section className="flex w-full max-w-6xl flex-col bg-surface-container shadow-sm rounded-2xl border border-outline-variant overflow-hidden">
+                <Tabs
+                    activeTabIndex={activeTab}
+                    onTabChange={setActiveTab}
+                >
                     <Tab variant="primary" active={activeTab === 0}>Buttons & Inputs</Tab>
                     <Tab variant="primary" active={activeTab === 1}>Selection Controls</Tab>
                     <Tab variant="primary" active={activeTab === 2}>Navigation & Selection</Tab>
                     <Tab variant="primary" active={activeTab === 3}>Feedback & Others</Tab>
                 </Tabs>
 
-                <div className="mb-4 min-h-[400px]">
-                    {renderTabContent(activeTab)}
+                <div className="p-6 gap-6">
+                    <div className="flex flex-col gap-2">
+                        <h2 className="text-2xl font-bold">Material Web Components</h2>
+                        <p className="text-muted">Tabs are positioned at the bottom using primary styling.</p>
+                    </div>
+                    <div className="my-4 min-h-[400px]">
+                        {renderTabContent(activeTab)}
+                    </div>
                 </div>
             </section>
 
-            <footer className="text-sm text-zinc-400 dark:text-muted mb-8">
+            <footer className="text-sm text-outline dark:text-muted mb-8">
                 Next.js + Material Web Components Demo
             </footer>
         </div>
