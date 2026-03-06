@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   description: "A collection of premium React atom components wrapping Material Web elements.",
 };
 
-import NavBar from "@/components/molecules/NavBar";
+import ClientSidebar from "@/components/organisms/ClientSidebar";
 
 export default function RootLayout({
   children,
@@ -28,12 +28,12 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased font-sans`}
       >
         <ThemeProvider attribute="class" defaultTheme="system">
-          <div className="flex flex-col min-h-screen">
-            <NavBar />
-            <main className="flex-1">
+          <div className="flex h-screen w-full overflow-hidden">
+            <ClientSidebar />
+            <main className="flex-1 overflow-y-auto overflow-x-hidden">
               {children}
             </main>
           </div>

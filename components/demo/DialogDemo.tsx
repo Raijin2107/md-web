@@ -34,9 +34,9 @@ const DialogDemo = () => {
                 <p className="text-on-surface-variant">Dialogs provide important information or prompt users for decisions.</p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:p-6">
                 {/* Standard Dialog */}
-                <section className="flex flex-col gap-4 p-6 border border-outline-variant rounded-2xl bg-surface-container shadow-sm">
+                <section className="flex flex-col gap-4 p-4 md:p-6 border border-outline-variant rounded-2xl bg-surface-container shadow-sm">
                     <h3 className="text-xl font-semibold border-b border-outline-variant pb-2">Standard</h3>
                     <p className="text-sm text-on-surface-variant mb-2">A basic dialog with a headline, supporting text, and action buttons.</p>
                     <Button onClick={() => standardRef.current?.show()}>Open Standard Dialog</Button>
@@ -53,7 +53,7 @@ const DialogDemo = () => {
                 </section>
 
                 {/* Alert Dialog */}
-                <section className="flex flex-col gap-4 p-6 border border-outline-variant rounded-2xl bg-surface-container shadow-sm">
+                <section className="flex flex-col gap-4 p-4 md:p-6 border border-outline-variant rounded-2xl bg-surface-container shadow-sm">
                     <h3 className="text-xl font-semibold border-b border-outline-variant pb-2">Alert</h3>
                     <p className="text-sm text-on-surface-variant mb-2">Alerts interrupt users with urgent information or details.</p>
                     <Button variant="tonal" onClick={() => alertRef.current?.show()}>Show Alert</Button>
@@ -70,7 +70,7 @@ const DialogDemo = () => {
                 </section>
 
                 {/* Confirm Dialog */}
-                <section className="flex flex-col gap-4 p-6 border border-outline-variant rounded-2xl bg-surface-container shadow-sm">
+                <section className="flex flex-col gap-4 p-4 md:p-6 border border-outline-variant rounded-2xl bg-surface-container shadow-sm">
                     <h3 className="text-xl font-semibold border-b border-outline-variant pb-2">Confirm</h3>
                     <p className="text-sm text-on-surface-variant mb-2">Confirmation dialogs for critical actions like deletion.</p>
                     <Button variant="outlined" onClick={() => confirmRef.current?.show()}>Delete Photo</Button>
@@ -89,7 +89,7 @@ const DialogDemo = () => {
                 </section>
 
                 {/* Choose Dialog */}
-                <section className="flex flex-col gap-4 p-6 border border-outline-variant rounded-2xl bg-surface-container shadow-sm">
+                <section className="flex flex-col gap-4 p-4 md:p-6 border border-outline-variant rounded-2xl bg-surface-container shadow-sm">
                     <h3 className="text-xl font-semibold border-b border-outline-variant pb-2">Choose</h3>
                     <p className="text-sm text-on-surface-variant mb-2">Selection dialogs allow users to pick from a list of options.</p>
                     <Button variant="outlined" onClick={() => chooseRef.current?.show()}>Choose Pet</Button>
@@ -117,7 +117,7 @@ const DialogDemo = () => {
                 </section>
 
                 {/* Form Dialog */}
-                <section className="flex flex-col gap-4 p-6 border border-outline-variant rounded-2xl bg-surface-container shadow-sm">
+                <section className="flex flex-col gap-4 p-4 md:p-6 border border-outline-variant rounded-2xl bg-surface-container shadow-sm">
                     <h3 className="text-xl font-semibold border-b border-outline-variant pb-2">Form</h3>
                     <p className="text-sm text-on-surface-variant mb-2">Dialogs can contain complex forms for data entry.</p>
                     <Button variant="tonal" onClick={() => formRef.current?.show()}>Create Contact</Button>
@@ -153,7 +153,7 @@ const DialogDemo = () => {
                 </section>
 
                 {/* Floating Sheet */}
-                <section className="flex flex-col gap-4 p-6 border border-outline-variant rounded-2xl bg-surface-container shadow-sm">
+                <section className="flex flex-col gap-4 p-4 md:p-6 border border-outline-variant rounded-2xl bg-surface-container shadow-sm">
                     <h3 className="text-xl font-semibold border-b border-outline-variant pb-2">Floating Sheet</h3>
                     <p className="text-sm text-on-surface-variant mb-2">A sheet-like dialog that dismisses via a header close button.</p>
                     <Button variant="outlined" onClick={() => floatingRef.current?.show()}>Show Sheet</Button>
@@ -173,7 +173,7 @@ const DialogDemo = () => {
                 </section>
 
                 {/* Positioning Demos */}
-                <section className="flex flex-col gap-4 p-6 border border-outline-variant rounded-2xl bg-surface-container shadow-sm md:col-span-2 lg:col-span-3">
+                <section className="flex flex-col gap-4 p-4 md:p-6 border border-outline-variant rounded-2xl bg-surface-container shadow-sm md:col-span-2 lg:col-span-3">
                     <h3 className="text-xl font-semibold border-b border-outline-variant pb-2">Positions</h3>
                     <p className="text-sm text-on-surface-variant mb-4">Test different dialog anchor positions.</p>
                     <div className="flex flex-wrap gap-3">

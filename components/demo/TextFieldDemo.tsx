@@ -114,7 +114,7 @@ const TextFieldDemo = () => {
                 {/* Validation */}
                 <div className="space-y-6">
                     <span className="text-xs uppercase text-outline font-bold tracking-widest block mb-1">Live Validation</span>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:p-6">
                         <div className="space-y-2">
                             <TextField
                                 ref={requiredRef}

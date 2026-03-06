@@ -154,6 +154,35 @@ body {
   --foreground: var(--md-sys-color-on-background);
 }
 
+@layer base {
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--md-sys-color-secondary) transparent;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--md-sys-color-secondary);
+    border-radius: 10px;
+    border: 2px solid transparent;
+    background-clip: content-box;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--md-sys-color-outline);
+    border: 2px solid transparent;
+    background-clip: content-box;
+  }
+}
+
 body {
   background: var(--background);
   color: var(--foreground);

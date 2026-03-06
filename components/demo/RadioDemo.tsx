@@ -7,7 +7,7 @@ const RadioDemo = () => {
     const [radioValue, setRadioValue] = useState('one');
 
     return (
-        <div className="flex flex-col gap-6 p-8 border border-outline-variant rounded-2xl  bg-surface-container shadow-sm">
+        <div className="flex flex-col gap-4 md:p-6 p-8 border border-outline-variant rounded-2xl  bg-surface-container shadow-sm">
             <h2 className="text-xl font-semibold   border-b pb-4">Radio Group</h2>
             <div className="flex flex-col gap-4 mt-2">
                 <label className="flex items-center gap-4 cursor-pointer group p-2 rounded-lg hover:bg-primary/8  transition-all">

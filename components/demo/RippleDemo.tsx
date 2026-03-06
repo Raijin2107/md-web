@@ -51,7 +51,7 @@ const RippleDemo = () => {
                     </div>
                 </section>
 
-                <section className="p-6 rounded-2xl border border-outline-variant dark:border-outline-variant">
+                <section className="p-4 md:p-6 rounded-2xl border border-outline-variant dark:border-outline-variant">
                     <h3 className="text-lg font-bold mb-2">Usage Note</h3>
                     <p className="text-sm text-muted">
                         The Ripple component should be placed inside a container with <code>position: relative</code> and <code>overflow: hidden</code>. It will automatically expand to fill its nearest relative parent.

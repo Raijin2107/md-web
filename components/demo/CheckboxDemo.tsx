@@ -9,7 +9,7 @@ export default function CheckboxDemo() {
     return (
         <div className="flex flex-col gap-8 p-8 border border-outline-variant rounded-2xl  bg-surface-container shadow-sm">
             <h2 className="text-xl font-semibold   border-b pb-4">Checkbox</h2>
-            <div className="flex flex-wrap gap-6 items-center">
+            <div className="flex flex-wrap gap-4 md:p-6 items-center">
                 <div className="flex flex-col gap-2">
                     <span className="text-xs text-muted uppercase font-medium">Unchecked</span>
                     <label className="flex items-center gap-2 cursor-pointer">

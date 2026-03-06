@@ -83,7 +83,7 @@ export default function DemoPage() {
                     <Tab variant="primary" active={activeTab === 3}>Feedback & Others</Tab>
                 </Tabs>
 
-                <div className="p-6 gap-6">
+                <div className="p-4 md:p-6 gap-4 md:p-6">
                     <div className="flex flex-col gap-2">
                         <h2 className="text-2xl font-bold">Material Web Components</h2>
                         <p className="text-muted">Tabs are positioned at the bottom using primary styling.</p>

@@ -8,7 +8,7 @@ const FabDemo = () => {
     return (
         <div className="flex flex-col gap-8 p-8 border border-outline-variant rounded-2xl  bg-surface-container shadow-sm">
             <h2 className="text-xl font-semibold   border-b pb-4">FAB</h2>
-            <div className="flex flex-col gap-6">
+            <div className="flex flex-col gap-4 md:p-6">
                 <div>
                     <span className="text-xs text-muted uppercase font-medium block mb-3">Variants</span>
                     <div className="flex flex-wrap gap-4 items-center">

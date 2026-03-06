@@ -62,7 +62,7 @@ export default function TabDemo() {
     return (
         <div className="flex flex-col gap-8 p-8 border border-outline-variant rounded-2xl  bg-surface-container shadow-sm">
             <h2 className="text-xl font-semibold   border-b pb-4">Tab</h2>
-            <div className="flex flex-col gap-6">
+            <div className="flex flex-col gap-4 md:p-6">
 
                 {/* Primary */}
                 <Section title="Primary Tabs">
