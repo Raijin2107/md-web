@@ -13,7 +13,7 @@ const Ripple = ({
     ...props
 }: RippleProps) => {
     // Using dynamic tag to bypass intrinsic element linting
-    const Tag = 'md-ripple' as any;
+    const Tag = 'md-ripple' as React.ElementType;
 
     return (
         <Tag

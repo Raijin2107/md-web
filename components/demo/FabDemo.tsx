@@ -12,7 +12,7 @@ const FabDemo = () => {
                 <div>
                     <span className="text-xs text-muted uppercase font-medium block mb-3">Variants</span>
                     <div className="flex flex-wrap gap-4 items-center">
-                        <Fab variant="surface"><Icon className='h-full w-full' slot='icon'>plus</Icon></Fab>
+                        <Fab variant="surface"><Icon className='h-full w-full' slot='icon'>add</Icon></Fab>
                         <Fab variant="primary"><Icon className='h-full w-full' slot='icon'>edit</Icon></Fab>
                         <Fab variant="secondary"><Icon className='h-full w-full' slot='icon'>share</Icon></Fab>
                         <Fab variant="tertiary"><Icon className='h-full w-full' slot='icon'>delete</Icon></Fab>
@@ -22,16 +22,16 @@ const FabDemo = () => {
                 <div>
                     <span className="text-xs text-muted uppercase font-medium block mb-3">Sizes</span>
                     <div className="flex flex-wrap gap-4 items-end">
-                        <Fab size="small"><Icon className='h-full w-full' slot='icon'>plus</Icon></Fab>
-                        <Fab size="medium"><Icon className='h-full w-full' slot='icon'>plus</Icon></Fab>
-                        <Fab size="large"><Icon className='h-full w-full' slot='icon'>plus</Icon></Fab>
+                        <Fab size="small"><Icon className='h-full w-full' slot='icon'>add</Icon></Fab>
+                        <Fab size="medium"><Icon className='h-full w-full' slot='icon'>add</Icon></Fab>
+                        <Fab size="large"><Icon className='h-full w-full' slot='icon'>add</Icon></Fab>
                     </div>
                 </div>
 
                 <div>
                     <span className="text-xs text-muted uppercase font-medium block mb-3">Extended</span>
                     <div className="flex flex-wrap gap-4 items-center">
-                        <Fab label="Create"><Icon className='me-2' slot="icon">plus</Icon></Fab>
+                        <Fab label="Create"><Icon className='me-2' slot="icon">add</Icon></Fab>
                         <Fab variant="primary" label="Compose"><Icon className='me-2' slot="icon">edit</Icon></Fab>
                     </div>
                 </div>

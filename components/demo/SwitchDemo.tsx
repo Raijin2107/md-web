@@ -17,7 +17,7 @@ const SwitchDemo = () => {
                         <span className="font-medium text-muted ">Default Switch</span>
                         <Switch
                             selected={switchSelected}
-                            onChange={(e: any) => setSwitchSelected(e.target.selected)}
+                            onChange={(e) => setSwitchSelected((e.target as HTMLInputElement & { selected: boolean }).selected)}
                         />
                     </label>
 
@@ -29,8 +29,8 @@ const SwitchDemo = () => {
                     <label className="flex items-center justify-between p-3 rounded-xl border   hover:bg-primary/8  transition-colors cursor-pointer">
                         <span className="font-medium text-muted ">Custom Lucide Icons</span>
                         <Switch icons selected>
-                            <Icon slot="on-icon" size="14">moon</Icon>
-                            <Icon slot="off-icon" size="14">sun</Icon>
+                            <Icon slot="on-icon" size="14">darkmode</Icon>
+                            <Icon slot="off-icon" size="14">lightmode</Icon>
                         </Switch>
                     </label>
 

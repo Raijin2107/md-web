@@ -12,6 +12,10 @@ interface TabsProps extends React.HTMLAttributes<HTMLElement> {
     children: React.ReactNode;
 }
 
+interface MdTabsElement extends HTMLElement {
+    activeTabIndex: number;
+}
+
 export const Tabs = ({
     activeTabIndex = 0,
     autoActivate,
@@ -20,13 +24,13 @@ export const Tabs = ({
     className = '',
     ...props
 }: TabsProps) => {
-    const tabsRef = useRef<any>(null);
+    const tabsRef = useRef<MdTabsElement>(null);
 
     useEffect(() => {
         const tabsElement = tabsRef.current;
         if (!tabsElement) return;
 
-        const handleUpdate = (e: any) => {
+        const handleUpdate = () => {
             if (onTabChange) {
                 onTabChange(tabsElement.activeTabIndex);
             }
@@ -91,7 +95,7 @@ export const Tab = ({
     children,
     ...props
 }: TabProps) => {
-    const Tag = (variant === 'primary' ? 'md-primary-tab' : 'md-secondary-tab') as any;
+    const Tag = (variant === 'primary' ? 'md-primary-tab' : 'md-secondary-tab') as React.ElementType;
 
     return (
         <Tag

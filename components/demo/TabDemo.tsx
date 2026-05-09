@@ -202,10 +202,10 @@ export default function TabDemo() {
                                     <Tab variant="secondary" active={nestedMovies === 3}>Frozen</Tab>
                                 </Tabs>
                                 <div className="p-4   rounded-lg italic">
-                                    {nestedMovies === 0 && <p>"May the Force be with you."</p>}
-                                    {nestedMovies === 1 && <p>"Avengers, assemble!"</p>}
-                                    {nestedMovies === 2 && <p>"You're gonna need a bigger boat."</p>}
-                                    {nestedMovies === 3 && <p>"Let it go!"</p>}
+                                    {nestedMovies === 0 && <p>&quot;May the Force be with you.&quot;</p>}
+                                    {nestedMovies === 1 && <p>&quot;Avengers, assemble!&quot;</p>}
+                                    {nestedMovies === 2 && <p>&quot;You&apos;re gonna need a bigger boat.&quot;</p>}
+                                    {nestedMovies === 3 && <p>&quot;Let it go!&quot;</p>}
                                 </div>
                             </div>
                         )}

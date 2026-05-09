@@ -55,6 +55,7 @@ const Checkbox = ({
             touch-target={touchTarget}
             onChange={onChange}
             onClick={onClick}
+            aria-label={ariaLabel}
             aria-labelledby={ariaLabelledBy}
             aria-describedby={ariaDescribedBy}
             suppressHydrationWarning

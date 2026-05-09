@@ -181,6 +181,22 @@ body {
     border: 2px solid transparent;
     background-clip: content-box;
   }
+
+  .scrollbar-hide-until-hover {
+    scrollbar-color: transparent transparent;
+  }
+
+  .scrollbar-hide-until-hover:hover {
+    scrollbar-color: var(--md-sys-color-secondary) transparent;
+  }
+
+  .scrollbar-hide-until-hover::-webkit-scrollbar-thumb {
+    background: transparent;
+  }
+
+  .scrollbar-hide-until-hover:hover::-webkit-scrollbar-thumb {
+    background: var(--md-sys-color-secondary);
+  }
 }
 
 body {

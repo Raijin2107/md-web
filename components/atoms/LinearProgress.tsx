@@ -20,7 +20,7 @@ const LinearProgress = ({
     className = '',
     ...props
 }: LinearProgressProps) => {
-    const Tag = 'md-linear-progress' as any;
+    const Tag = 'md-linear-progress' as React.ElementType;
 
     return (
         <Tag

@@ -15,30 +15,31 @@ interface NavItem {
     label: string;
     href?: string;
     icon?: IconName | string;
+    pack?: string;
     external?: boolean;
     isSeparator?: boolean;
     isTitle?: boolean;
 }
 
 const NAV_ITEMS: NavItem[] = [
-    { label: 'Docs', href: DOCS_URL, external: true, icon: 'BookOpen' },
-    { label: 'GitHub', href: GITHUB_URL, external: true, icon: 'Github' },
+    { label: 'Docs', href: DOCS_URL, external: true, icon: 'MenuBook' },
+    { label: 'GitHub', href: GITHUB_URL, external: true, icon: 'FaGithub', pack: 'fa' },
     { label: 'Separator', isSeparator: true },
-    { label: 'Button', href: '/demo/button', icon: 'MousePointerClick' },
-    { label: 'Checkbox', href: '/demo/checkbox', icon: 'CheckSquare' },
-    { label: 'Chip', href: '/demo/chip', icon: 'Tag' },
-    { label: 'Dialog', href: '/demo/dialog', icon: 'MessageSquare' },
-    { label: 'FAB', href: '/demo/fab', icon: 'PlusCircle' },
+    { label: 'Button', href: '/demo/button', icon: 'AdsClick' },
+    { label: 'Checkbox', href: '/demo/checkbox', icon: 'CheckBox' },
+    { label: 'Chip', href: '/demo/chip', icon: 'Label' },
+    { label: 'Dialog', href: '/demo/dialog', icon: 'Chat' },
+    { label: 'FAB', href: '/demo/fab', icon: 'AddCircle' },
     { label: 'Icon', href: '/demo/icon', icon: 'Star' },
     { label: 'List', href: '/demo/list', icon: 'List' },
-    { label: 'Progress', href: '/demo/progress', icon: 'Loader' },
-    { label: 'Radio', href: '/demo/radio', icon: 'CircleDot' },
+    { label: 'Progress', href: '/demo/progress', icon: 'HourglassTop' },
+    { label: 'Radio', href: '/demo/radio', icon: 'RadioButtonChecked' },
     { label: 'Ripple', href: '/demo/ripple', icon: 'Waves' },
-    { label: 'Select', href: '/demo/select', icon: 'ChevronDownSquare' },
-    { label: 'Slider', href: '/demo/slider', icon: 'SlidersHorizontal' },
-    { label: 'Switch', href: '/demo/switch', icon: 'ToggleRight' },
-    { label: 'Tab', href: '/demo/tab', icon: 'FolderKanban' },
-    { label: 'Text Field', href: '/demo/text-field', icon: 'Type' },
+    { label: 'Select', href: '/demo/select', icon: 'ArrowDropDownCircle' },
+    { label: 'Slider', href: '/demo/slider', icon: 'Tune' },
+    { label: 'Switch', href: '/demo/switch', icon: 'ToggleOn' },
+    { label: 'Tab', href: '/demo/tab', icon: 'Tab' },
+    { label: 'Text Field', href: '/demo/text-field', icon: 'TextFields' },
 ];
 
 export default function ClientSidebar() {
@@ -84,7 +85,7 @@ export default function ClientSidebar() {
                     const isActive = item.href === pathname;
 
                     const linkStyles = [
-                        'flex items-center rounded-full transition-all duration-300 relative overflow-hidden w-full px-4 h-14',
+                        `flex items-center rounded-full transition-all duration-300 relative overflow-hidden ${collapsed ? 'w-12 h-12 justify-center mx-auto' : 'w-full px-4 h-14'}`,
                         isActive
                             ? 'bg-secondary-container text-on-secondary-container font-medium'
                             : 'text-on-surface-variant hover:bg-surface-variant/50 hover:text-on-surface hover:active:bg-surface-variant/80 font-medium',
@@ -95,16 +96,16 @@ export default function ClientSidebar() {
                             <Ripple />
                             {item.icon && (
                                 <div className="shrink-0 flex items-center justify-center pointer-events-none">
-                                    <Icon size={24}>{item.icon as IconName}</Icon>
+                                    <Icon size={24} pack={item.pack}>{item.icon as IconName}</Icon>
                                 </div>
                             )}
                             <div
-                                className={`flex flex-1 items-center overflow-hidden whitespace-nowrap transition-all duration-300 pointer-events-none ${collapsed ? 'opacity-0 w-0' : 'opacity-100 ml-4'
+                                className={`flex items-center overflow-hidden whitespace-nowrap transition-all duration-300 pointer-events-none ${collapsed ? 'opacity-0 w-0' : 'flex-1 opacity-100 ml-4'
                                     }`}
                             >
                                 <span className="truncate flex-1 text-sm">{item.label}</span>
                                 {item.external && (
-                                    <Icon className="w-4 h-4 opacity-70 shrink-0 ml-2">MoveUpRight</Icon>
+                                    <Icon className="w-4 h-4 opacity-70 shrink-0 ml-2">OpenInNew</Icon>
                                 )}
                             </div>
                         </>

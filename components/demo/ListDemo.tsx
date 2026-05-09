@@ -13,7 +13,7 @@ const ListDemo = () => {
                         <Icon slot="start">Image</Icon>
                     </ListItem>
                     <ListItem headline="Recipes" supportingText="Jan 17, 2024" overline="Food">
-                        <Icon slot="start">Utensils</Icon>
+                        <Icon slot="start">Restaurant</Icon>
                     </ListItem>
                     <hr className="border-outline-variant" />
                     <ListItem
@@ -31,7 +31,7 @@ const ListDemo = () => {
                         disabled
                         overline="Status"
                     >
-                        <Icon slot="start">Off</Icon>
+                        <Icon slot="start">DoNotDisturb</Icon>
                     </ListItem>
                     <ListItem
                         headline="New Message"
@@ -39,14 +39,14 @@ const ListDemo = () => {
                         trailingSupportingText="Just now"
                     >
                         <Icon slot="start">Mail</Icon>
-                        <Icon slot="end">Bell</Icon>
+                        <Icon slot="end">Notifications</Icon>
                     </ListItem>
                     <ListItem
                         headline="Server Status"
                         supportingText="All systems operational"
                         trailingSupportingText="Online"
                     >
-                        <Icon slot="start">Server</Icon>
+                        <Icon slot="start">Storage</Icon>
                         <Icon slot="end">CheckCircle</Icon>
                     </ListItem>
                 </List>

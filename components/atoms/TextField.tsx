@@ -84,7 +84,7 @@ const TextField = forwardRef<TextFieldElement, TextFieldProps>(({
     const innerRef = useRef<HTMLElement>(null);
     useImperativeHandle(ref, () => innerRef.current as unknown as TextFieldElement);
 
-    const Tag = (variant === 'outlined' ? 'md-outlined-text-field' : 'md-filled-text-field') as any;
+    const Tag = (variant === 'outlined' ? 'md-outlined-text-field' : 'md-filled-text-field') as React.ElementType;
 
     return (
         <Tag

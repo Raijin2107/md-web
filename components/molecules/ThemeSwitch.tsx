@@ -10,6 +10,7 @@ export default function ThemeSwitch() {
   const [mounted, setMounted] = useState(false);
 
   // Avoid hydration mismatch — don't render until client knows the theme
+  // eslint-disable-next-line react-hooks/set-state-in-effect
   useEffect(() => setMounted(true), []);
   if (!mounted) return null;
 
@@ -22,8 +23,8 @@ export default function ThemeSwitch() {
       aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
       onChange={() => setTheme(isDark ? 'light' : 'dark')}
     >
-      <Icon slot="on-icon"  name="Moon" size={14} />
-      <Icon slot="off-icon" name="Sun"  size={14} />
+      <Icon slot="on-icon"  name="DarkMode" size={14} />
+      <Icon slot="off-icon" name="LightMode"  size={14} />
     </Switch>
   );
 }

@@ -45,7 +45,7 @@ const IconButton = ({
         }
     }, [form]);
 
-    const Tag = 'md-icon-button' as any;
+    const Tag = 'md-icon-button' as React.ElementType;
     return (
         <Tag
             ref={innerRef}

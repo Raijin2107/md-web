@@ -14,18 +14,18 @@ const IconDemo = () => {
                     <span className="text-xs uppercase text-muted font-bold tracking-wider">Home</span>
                 </div>
                 <div className="flex flex-col items-center gap-2">
-                    <Icon className="text-4xl">Settings</Icon>
-                    <span className="text-xs uppercase text-muted font-bold tracking-wider">Settings</span>
+                    <Icon pack="fa" className="text-4xl">FaCog</Icon>
+                    <span className="text-xs uppercase text-muted font-bold tracking-wider">Settings (FA)</span>
                 </div>
                 <div className="flex flex-col items-center gap-2">
                     <IconButton ariaLabel="Favorite">
-                        <Icon>Heart</Icon>
+                        <Icon pack="io5">IoHeart</Icon>
                     </IconButton>
-                    <span className="text-xs uppercase text-muted font-bold tracking-wider">Favorite</span>
+                    <span className="text-xs uppercase text-muted font-bold tracking-wider">Heart (IO)</span>
                 </div>
                 <div className="flex flex-col items-center gap-2">
                     <IconButton disabled ariaLabel="Delete disabled">
-                        <Icon>Trash2</Icon>
+                        <Icon>Delete</Icon>
                     </IconButton>
                     <span className="text-xs uppercase text-muted font-bold tracking-wider">Disabled</span>
                 </div>

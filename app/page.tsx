@@ -17,7 +17,7 @@ export default function Home() {
           <Link href="/demo">
             <Button variant="filled">
               View Components
-              <Icon slot="icon">ArrowRight</Icon>
+              <Icon slot="icon">ArrowForward</Icon>
             </Button>
           </Link>
           <a href="https://material-web.dev" target="_blank">

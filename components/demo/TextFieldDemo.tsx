@@ -56,7 +56,7 @@ const TextFieldDemo = () => {
                             label="Description"
                             supportingText="Tell us about yourself"
                             className="w-full"
-                            style={{ minHeight: '100px' } as any}
+                            style={{ minHeight: '100px' } as React.CSSProperties}
                         />
                     </div>
                     <div className="space-y-4">
@@ -67,7 +67,7 @@ const TextFieldDemo = () => {
                             label="Comments"
                             placeholder="Your thoughts..."
                             className="w-full"
-                            style={{ minHeight: '100px' } as any}
+                            style={{ minHeight: '100px' } as React.CSSProperties}
                         />
                     </div>
                 </div>
@@ -83,7 +83,7 @@ const TextFieldDemo = () => {
                             placeholder="Keywords..."
                             className="w-full"
                             value={searchValue}
-                            onChange={(e: any) => setSearchValue(e.target.value)}
+                            onChange={(e) => setSearchValue((e.target as HTMLInputElement).value)}
                         >
                             <Icon slot="leading-icon">Search</Icon>
                             <IconButton
@@ -94,7 +94,7 @@ const TextFieldDemo = () => {
                                     searchRef.current?.focus();
                                 }}
                             >
-                                <Icon>X</Icon>
+                                <Icon>Close</Icon>
                             </IconButton>
                         </TextField>
                     </div>

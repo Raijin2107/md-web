@@ -18,7 +18,7 @@ const CircularProgress = ({
     className = '',
     ...props
 }: CircularProgressProps) => {
-    const Tag = 'md-circular-progress' as any;
+    const Tag = 'md-circular-progress' as React.ElementType;
 
     return (
         <Tag

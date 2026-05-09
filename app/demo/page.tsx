@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState } from 'react';
-import Image from "next/image";
 import { Tabs, Tab } from "@/components/atoms/Tabs";
 import ButtonDemo from "@/components/demo/ButtonDemo";
 import CheckboxDemo from "@/components/demo/CheckboxDemo";

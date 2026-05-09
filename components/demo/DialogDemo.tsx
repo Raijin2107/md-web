@@ -75,7 +75,7 @@ const DialogDemo = () => {
                     <p className="text-sm text-on-surface-variant mb-2">Confirmation dialogs for critical actions like deletion.</p>
                     <Button variant="outlined" onClick={() => confirmRef.current?.show()}>Delete Photo</Button>
                     <Dialog ref={confirmRef} style={{ maxWidth: '320px' }}>
-                        <Icon slot="icon">Trash2</Icon>
+                        <Icon slot="icon">Delete</Icon>
                         <div slot="headline">Permanently delete?</div>
                         <form id="form-confirm" slot="content" method="dialog">
                             Deleting the selected photos will also remove them from all synced
@@ -125,7 +125,7 @@ const DialogDemo = () => {
                         <span slot="headline" className="flex items-center justify-between w-full">
                             <span className="text-xl font-medium">Create new contact</span>
                             <IconButton onClick={() => formRef.current?.close('close')} ariaLabel="Close dialog">
-                                <Icon>X</Icon>
+                                <Icon>Close</Icon>
                             </IconButton>
                         </span>
                         <form id="form-contact" slot="content" method="dialog" className="flex flex-col gap-4 py-4">
@@ -141,7 +141,7 @@ const DialogDemo = () => {
                             <TextField label="Phone" type="tel" />
                         </form>
                         <div slot="actions">
-                            <Button variant="text" onClick={(e) => {
+                            <Button variant="text" onClick={() => {
                                 const form = document.getElementById('form-contact') as HTMLFormElement;
                                 form?.reset();
                             }}>Reset</Button>
@@ -161,7 +161,7 @@ const DialogDemo = () => {
                         <span slot="headline" className="flex items-center justify-between w-full">
                             <span className="text-xl font-medium">Floating Sheet</span>
                             <IconButton onClick={() => floatingRef.current?.close('close')} ariaLabel="Close dialog">
-                                <Icon>X</Icon>
+                                <Icon>Close</Icon>
                             </IconButton>
                         </span>
                         <form id="form-floating" slot="content" method="dialog" className="py-2 w-full">

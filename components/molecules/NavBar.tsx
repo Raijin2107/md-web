@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
 import IconButton from '../atoms/IconButton';
 import Icon from '../atoms/Icon';
 import ThemeSwitch from './ThemeSwitch';
@@ -27,7 +28,7 @@ interface NavBarProps {
 }
 
 export default function NavBar({ activeHref, onNavClick }: NavBarProps) {
-  const [scrolled, setScrolled] = useState(false);
+  const [, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
@@ -56,12 +57,12 @@ export default function NavBar({ activeHref, onNavClick }: NavBarProps) {
         <div className="mx-auto flex h-16 max-w-6xl items-center gap-4 px-4 sm:px-6">
 
           {/* Brand */}
-          <a
+          <Link
             href="/"
             className="shrink-0 text-base font-bold tracking-tight text-primary hover:opacity-70 transition-opacity"
           >
             md·web
-          </a>
+          </Link>
 
           {/* Desktop nav */}
           <nav className="hidden md:flex flex-1 items-center gap-1" aria-label="Primary navigation">

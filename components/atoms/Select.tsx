@@ -10,7 +10,7 @@ export type SelectVariant = 'filled' | 'outlined';
 export interface SelectElement extends HTMLElement {
     value: string;
     selectedIndex: number;
-    options: any[]; // Adjust if needed
+    options: unknown[]; // Adjust if needed
     reportValidity: () => boolean;
     checkValidity: () => boolean;
 }
@@ -65,7 +65,7 @@ export const Select = forwardRef<SelectElement, SelectProps>(({
     const innerRef = useRef<HTMLElement>(null);
     useImperativeHandle(ref, () => innerRef.current as unknown as SelectElement);
 
-    const Tag = (variant === 'outlined' ? 'md-outlined-select' : 'md-filled-select') as any;
+    const Tag = (variant === 'outlined' ? 'md-outlined-select' : 'md-filled-select') as React.ElementType;
 
     return (
         <Tag
@@ -124,7 +124,7 @@ export const SelectOption = forwardRef<SelectOptionElement, SelectOptionProps>((
     const innerRef = useRef<HTMLElement>(null);
     useImperativeHandle(ref, () => innerRef.current as unknown as SelectOptionElement);
 
-    const Tag = 'md-select-option' as any;
+    const Tag = 'md-select-option' as React.ElementType;
 
     return (
         <Tag

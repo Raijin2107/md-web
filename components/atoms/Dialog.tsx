@@ -134,7 +134,7 @@ const Dialog = forwardRef<DialogElement, DialogProps>(({
                 md-dialog [slot="actions"] { padding: 1rem 1.5rem 1.5rem 1.5rem; }
             `}</style>
             <md-dialog
-                ref={innerRef as any}
+                ref={innerRef as React.Ref<HTMLElement>}
                 class={className}
                 style={{ ...style, ...getPositionStyles() }}
                 open={open || undefined}

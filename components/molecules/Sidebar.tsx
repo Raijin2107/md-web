@@ -67,7 +67,7 @@ export default function Sidebar({
             ariaLabel={isCollapsed ? 'Expand sidebar' : 'Collapse sidebar'}
             className="shrink-0 bg-surface-container sm:bg-transparent shadow-sm sm:shadow-none rounded-md"
           >
-            <Icon>{isCollapsed ? 'Menu' : 'ListIndentDecrease'}</Icon>
+            <Icon pack="tb">{isCollapsed ? 'TbLayoutSidebarLeftExpandFilled' : 'TbLayoutSidebarLeftCollapseFilled'}</Icon>
           </IconButton>
           <div
             className={`transition-all duration-300 flex items-center ${isCollapsed ? 'w-0 opacity-0 overflow-hidden' : 'opacity-100 ml-4'
@@ -79,7 +79,7 @@ export default function Sidebar({
           </div>
         </div>
 
-        <div className={`flex-1 overflow-y-auto px-3 py-4 flex flex-col gap-2 transition-opacity duration-300 pointer-events-auto ${isOverlay && isCollapsed ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
+        <div className={`flex-1 overflow-y-auto px-3 py-4 flex flex-col gap-2 transition-opacity duration-300 pointer-events-auto scrollbar-hide-until-hover ${isOverlay && isCollapsed ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
           {children}
         </div>
 

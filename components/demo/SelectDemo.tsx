@@ -20,7 +20,7 @@ const SelectDemo = () => {
                         <Select
                             label="Favorite Fruit"
                             value={selectedFruit}
-                            onChange={(e: any) => setSelectedFruit(e.target.value)}
+                            onChange={(e) => setSelectedFruit((e.target as HTMLSelectElement).value)}
                             className="w-full"
                         >
                             <SelectOption value="apple">
@@ -46,7 +46,7 @@ const SelectDemo = () => {
                             variant="outlined"
                             label="Pick a Vegetable"
                             value={selectedVegetable}
-                            onChange={(e: any) => setSelectedVegetable(e.target.value)}
+                            onChange={(e) => setSelectedVegetable((e.target as HTMLSelectElement).value)}
                             className="w-full"
                             required
                             supportingText="* Required field"
@@ -82,12 +82,12 @@ const SelectDemo = () => {
                                 <div slot="supporting-text">Primary residence</div>
                             </SelectOption>
                             <SelectOption value="work">
-                                <Icon slot="start">Briefcase</Icon>
+                                <Icon slot="start">Work</Icon>
                                 <div slot="headline">Work Address</div>
                                 <div slot="supporting-text">Office location</div>
                             </SelectOption>
                             <SelectOption value="other" disabled>
-                                <Icon slot="start">MapPin</Icon>
+                                <Icon slot="start">LocationOn</Icon>
                                 <div slot="headline">Other</div>
                             </SelectOption>
                         </Select>

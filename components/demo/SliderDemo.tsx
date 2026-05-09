@@ -19,7 +19,7 @@ const SliderDemo = () => {
                         <span className="text-xs uppercase text-outline font-bold tracking-widest block mb-1">Continuous Slider</span>
                         <Slider
                             value={sliderValue}
-                            onInput={(e: any) => setSliderValue(e.target.value)}
+                            onInput={(e) => setSliderValue(Number((e.target as HTMLInputElement).value))}
                             aria-label="Continuous slider"
                         />
                         <div className="text-sm text-muted">Value: <span className="font-bold text-primary">{sliderValue}</span></div>
@@ -45,9 +45,10 @@ const SliderDemo = () => {
                             labeled
                             valueStart={rangeStart}
                             valueEnd={rangeEnd}
-                            onInput={(e: any) => {
-                                setRangeStart(e.target.valueStart);
-                                setRangeEnd(e.target.valueEnd);
+                            onInput={(e) => {
+                                const target = e.target as HTMLInputElement & { valueStart: number, valueEnd: number };
+                                setRangeStart(target.valueStart);
+                                setRangeEnd(target.valueEnd);
                             }}
                             aria-label="Range slider"
                         />
